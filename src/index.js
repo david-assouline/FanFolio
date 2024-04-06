@@ -22,7 +22,7 @@ function App() {
                         <Switch>
                             <Route path={`/auth`} component={AuthLayout} />
                             <Route path={`/portal`} render={(props) => <MainLayout {...props} user={user} signOut={signOut} />} />
-                            <Redirect from={`/`} to="/portal/dashboard" />
+                            <Redirect from={`/`} to="/portal/home" />
                         </Switch>
                     </HashRouter>
                 ) : null

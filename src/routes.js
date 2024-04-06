@@ -16,29 +16,30 @@ import {
   RocketIcon,
   SupportIcon,
 } from "components/Icons/Icons";
+import Trade from "./views/Portal/Trade";
 
 var dashRoutes = [
   {
-    path: "/dashboard",
-    name: "Dashboard",
+    path: "/home",
+    name: "Home",
     icon: <HomeIcon color="inherit" />,
     component: Dashboard,
     layout: "/portal",
   },
-  // {
-  //   path: "/documents",
-  //   name: "Documents",
-  //   icon: <DocumentIcon color="inherit" />,
-  //   component: Documents,
-  //   layout: "/portal",
-  // },
-  // {
-  //   path: "/home",
-  //   name: "Policies",
-  //   icon: <HomeIcon color="inherit" />,
-  //   component: Documents,
-  //   layout: "/portal",
-  // },
+  {
+    path: "/trade",
+    name: "Trade",
+    icon: <DocumentIcon color="inherit" />,
+    component: Trade,
+    layout: "/portal",
+  },
+  {
+    path: "/portfolio",
+    name: "Portfolio",
+    icon: <HomeIcon color="inherit" />,
+    component: Dashboard,
+    layout: "/portal",
+  },
   // {
   //   path: "/home",
   //   name: "Forms",
