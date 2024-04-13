@@ -12,11 +12,11 @@ import {
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import React, { useState } from "react";
-import { teams } from 'variables/MLBteams.js';
+import { MLB_TEAMS_DICT } from 'variables/MLB.js';
 // react icons
-import { BsArrowRight } from "react-icons/bs";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
-const OrderForm = ({ title, teamName, setTeamName }) => {
+const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
   const textColor = useColorModeValue("gray.700", "white");
 
   const [action, setAction] = useState('buy');
@@ -45,11 +45,11 @@ const OrderForm = ({ title, teamName, setTeamName }) => {
                     Team Name
                   </Text>
                     <Select width="300px"
-                      value={teamName}
-                      onChange={(e) => setTeamName(e.target.value)}
+                      value={selectedTeam}
+                      onChange={(e) => setSelectedTeam(e.target.value)}
                     >
-                      {teams.map((team, index) => (
-                        <option key={index} value={team.Name}>{team.City + " " + team.Name}</option>
+                      {Object.entries(MLB_TEAMS_DICT).map(([name, details], index) => (
+                        <option key={index} value={name}>{details.City + " " + name}</option>
                       ))}
                     </Select>
                 </Box>
@@ -119,6 +119,25 @@ const OrderForm = ({ title, teamName, setTeamName }) => {
                 Limit
               </Button>
             </ButtonGroup>
+            <Divider mt="3"/>
+            <Stack direction="row" spacing={4}>
+              <Button
+                rightIcon={<ArrowForwardIcon />}
+                variant="outline"
+                mt="3"
+                onClick={() => setOrderType('limit')}
+                bg='white'
+                color='black'
+                borderRadius="10px"
+                borderWidth="1px"
+                width="300px"
+                _hover={{
+                  bg: 'gray.200',
+                }}
+              >
+                Preview Order
+              </Button>
+            </Stack>
           </Flex>
         </Flex>
       </CardBody>

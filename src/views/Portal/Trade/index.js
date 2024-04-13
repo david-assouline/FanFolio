@@ -19,15 +19,13 @@ import {
   WalletIcon,
 } from "components/Icons/Icons.js";
 import React, { useState } from "react";
-import { dashboardTableData, timelineData } from "variables/general";
-import BuiltByDevelopers from "../Dashboard/components/BuiltByDevelopers";
 import MiniStatistics from "../Dashboard/components/MiniStatistics";
 import OrderForm from "./components/OrderForm";
-import StockPreview from "./components/StockPreview";
+import StockInfoCard from "./components/StockInfoCard";
 
 export default function Trade() {
   const iconBoxInside = useColorModeValue("white", "white");
-  const [teamName, setTeamName] = useState('');
+  const [selectedTeam, setSelectedTeam] = useState('Yankees');
 
   return (
     <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
@@ -64,11 +62,11 @@ export default function Trade() {
         gap='24px'>
         <OrderForm
           title={"Buy & Sell"}
-          teamName={teamName}
-          setTeamName={setTeamName}
+          selectedTeam={selectedTeam}
+          setSelectedTeam={setSelectedTeam}
         />
-        <StockPreview
-          title={teamName}
+        <StockInfoCard
+          selectedTeam={selectedTeam}
         />
       </Grid>
     </Flex>
