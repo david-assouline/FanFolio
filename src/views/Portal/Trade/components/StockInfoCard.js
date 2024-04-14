@@ -36,7 +36,7 @@ const StockInfoCard = ({ selectedTeam }) => {
         <Divider mt="3"/>
         <Flex mt="1" justifyContent="space-between" alignItems="center">
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            Open
+            Previous Close
           </Text>
           <Text lineHeight="tight" isTruncated>
             $15.75

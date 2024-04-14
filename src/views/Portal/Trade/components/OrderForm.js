@@ -14,7 +14,7 @@ import CardBody from "components/Card/CardBody.js";
 import React, { useState } from "react";
 import { MLB_TEAMS_DICT } from 'variables/MLB.js';
 // react icons
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 
 const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
   const textColor = useColorModeValue("gray.700", "white");
@@ -122,7 +122,7 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
             <Divider mt="3"/>
             <Stack direction="row" spacing={4}>
               <Button
-                rightIcon={<ArrowForwardIcon />}
+                rightIcon={<ExternalLinkIcon />}
                 variant="outline"
                 mt="3"
                 onClick={() => setOrderType('limit')}
