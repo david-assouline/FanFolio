@@ -18,14 +18,36 @@ import {
   GlobeIcon,
   WalletIcon,
 } from "components/Icons/Icons.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MiniStatistics from "../Dashboard/components/MiniStatistics";
 import OrderForm from "./components/OrderForm";
 import StockInfoCard from "./components/StockInfoCard";
 
 export default function Trade() {
   const iconBoxInside = useColorModeValue("white", "white");
+
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedTeam, setSelectedTeam] = useState('Yankees');
+  const [leagueData, setLeagueData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      let response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB`);
+      let data = await response.json();
+      console.log(data)
+      setLeagueData(data);
+
+    } catch (error) {
+      console.error('Error fetching data: ', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData()
+  }, []);
 
   return (
     <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
@@ -51,20 +73,27 @@ export default function Trade() {
           icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
       </SimpleGrid>
-      <Grid
-        templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
-        templateRows={{ md: "1fr auto", lg: "1fr" }}
-        my='26px'
-        gap='24px'>
-        <OrderForm
-          title={"Buy & Sell"}
-          selectedTeam={selectedTeam}
-          setSelectedTeam={setSelectedTeam}
-        />
-        <StockInfoCard
-          selectedTeam={selectedTeam}
-        />
-      </Grid>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <Grid
+            templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
+            templateRows={{ md: "1fr auto", lg: "1fr" }}
+            my='26px'
+            gap='24px'>
+            <OrderForm
+              title={"Buy & Sell"}
+              selectedTeam={selectedTeam}
+              setSelectedTeam={setSelectedTeam}
+            />
+            <StockInfoCard
+              selectedTeam={selectedTeam}
+              leagueData={leagueData}
+            />
+          </Grid>
+        </>
+      )}
     </Flex>
   );
 }

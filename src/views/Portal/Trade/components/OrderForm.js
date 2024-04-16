@@ -3,10 +3,10 @@ import {
   Box,
   Button, ButtonGroup, Divider,
   Flex,
-  Icon, Input, InputGroup, InputLeftAddon, Select,
+  Input, Select,
   Spacer, Stack,
   Text,
-  useColorModeValue
+  useColorModeValue, useDisclosure
 } from "@chakra-ui/react";
 // Custom components
 import Card from "components/Card/Card.js";
@@ -14,17 +14,16 @@ import CardBody from "components/Card/CardBody.js";
 import React, { useState } from "react";
 import { MLB_TEAMS_DICT } from 'variables/MLB.js';
 // react icons
-import { ArrowForwardIcon, ExternalLinkIcon } from "@chakra-ui/icons";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import OrderPreviewModal from "./OrderPreviewModal";
 
 const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
   const textColor = useColorModeValue("gray.700", "white");
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [action, setAction] = useState('buy');
   const [orderType, setOrderType] = useState('market');
   const [quantity, setQuantity] = useState(0);
-
-  const handleBuy = () => console.log('Buy');
-  const handleSell = () => console.log('Sell');
 
   return (
     <Card minHeight='290.5px' p='1.2rem'>
@@ -112,6 +111,7 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
                 color={orderType === 'limit' ? 'white' : 'black'}
                 borderRadius="10px"
                 width="150px"
+                disabled="true"
                 _hover={{
                   bg: orderType === 'limit' ? 'green.600' : 'gray.200',
                 }}
@@ -121,22 +121,27 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
             </ButtonGroup>
             <Divider mt="3"/>
             <Stack direction="row" spacing={4}>
-              <Button
-                rightIcon={<ExternalLinkIcon />}
-                variant="outline"
-                mt="3"
-                onClick={() => setOrderType('limit')}
-                bg='white'
-                color='black'
-                borderRadius="10px"
-                borderWidth="1px"
-                width="300px"
-                _hover={{
-                  bg: 'gray.200',
-                }}
-              >
-                Preview Order
-              </Button>
+              <>
+                <Button
+                  rightIcon={<ExternalLinkIcon />}
+                  variant="outline"
+                  mt="3"
+                  onClick={onOpen}  // Use onOpen function to open the modal
+                  bg='white'
+                  color='black'
+                  borderRadius="10px"
+                  borderWidth="1px"
+                  width="300px"
+                  _hover={{
+                    bg: 'gray.200',
+                  }}
+                >
+                  Preview Order
+                </Button>
+
+                {/* Use the imported Modal component */}
+                <OrderPreviewModal isOpen={isOpen} onClose={onClose} />
+              </>
             </Stack>
           </Flex>
         </Flex>

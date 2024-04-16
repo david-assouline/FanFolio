@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Text, Divider, Flex, Badge, VStack } from "@chakra-ui/react";
 import { RepeatIcon } from "@chakra-ui/icons";
 import { MLB_TEAMS_DICT } from "../../../../variables/MLB";
 
-const StockInfoCard = ({ selectedTeam }) => {
+const StockInfoCard = ({ selectedTeam, leagueData }) => {
+  const [teamData, setTeamData] = useState(null);
+
+  useEffect(() => {
+    if (leagueData.length > 0) {
+      const data = leagueData.find(team => team.TeamName === selectedTeam);
+      setTeamData(data || null);
+    }
+  }, [leagueData, selectedTeam]);
+
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p={4} bg="white">
       <Box p="6">
@@ -26,7 +35,7 @@ const StockInfoCard = ({ selectedTeam }) => {
         <Divider mt="3"/>
         <Flex mt="3" justifyContent="space-between" alignItems="center">
           <Text fontWeight="semibold" lineHeight="tight" isTruncated>
-            $15.75
+            {teamData ? `$${teamData.CurrentSharePrice}` : ''}
           </Text>
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
             ↓ $0.33 (-2.05%)
