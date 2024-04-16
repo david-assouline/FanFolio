@@ -38,19 +38,16 @@ export default function Trade() {
         <MiniStatistics
           title={"Portfolio Value"}
           amount={"$8,800"}
-          percentage={5}
           icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
         <MiniStatistics
-          title={"New Clients"}
-          amount={"+3,020"}
-          percentage={-14}
+          title={"P/L"}
+          amount={"+$3,020"}
           icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
         <MiniStatistics
-          title={"Total Sales"}
-          amount={"$173,000"}
-          percentage={8}
+          title={"Total Trades"}
+          amount={"26"}
           icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
       </SimpleGrid>
