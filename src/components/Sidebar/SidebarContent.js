@@ -123,7 +123,7 @@ const SidebarContent = ({ logoText, routes }) => {
                   <Icon>{prop.icon}</Icon>
                 ) : (
                   <IconBox
-                    bg="blue.100"
+                    bg="gray.700"
                     color="white"
                     h="30px"
                     w="30px"
@@ -174,7 +174,7 @@ const SidebarContent = ({ logoText, routes }) => {
                 ) : (
                   <IconBox
                     bg={inactiveBg}
-                    color="blue.100"
+                    color="gray.700"
                     h="30px"
                     w="30px"
                     me="12px"
@@ -222,7 +222,7 @@ const SidebarContent = ({ logoText, routes }) => {
     </Box>
           <Stack direction="column" mb="40px">
               <Flex align="center" mb="2">
-                  <Avatar size="md" name={userAttributes.given_name + " " + userAttributes.family_name} bg="blue.100" textColor="white" src="" />{" "}
+                  <Avatar size="md" name={userAttributes.given_name + " " + userAttributes.family_name} bg="gray.700" textColor="white" src="" />{" "}
                   <Box ml="3">
                       <Text fontSize="sm" fontWeight="bold">{userAttributes.given_name + " " + userAttributes.family_name}</Text>
                       <Text fontSize="xs">{userAttributes.email}</Text>
@@ -231,7 +231,7 @@ const SidebarContent = ({ logoText, routes }) => {
               <Separator></Separator>
             <Box>{links}</Box>
           </Stack>
-        <Button onClick={handleSignOut} variant="solid" color="white" bg="blue.100" borderRadius="15px" mx="auto" my="20px" w="80%">
+        <Button onClick={handleSignOut} variant="solid" color="white" bg="gray.700" borderRadius="15px" mx="auto" my="20px" w="80%">
             Logout
         </Button>
     </>

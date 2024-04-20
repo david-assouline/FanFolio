@@ -34,9 +34,9 @@ const ExpandedTable = ({ title, captions, data, folderIsExpanded, setFolderIsExp
             {title}
           </Text>
           <Button leftIcon={<ArrowBackIcon w="25px" h="25px" />}
-                  color="blue.100"
+                  color="gray.700"
                   variant="outline"
-                  borderColor="blue.100"
+                  borderColor="gray.700"
                   borderWidth="2px"
                   onClick={handleCloseButtonClick}>
             BACK

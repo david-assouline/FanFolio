@@ -69,7 +69,7 @@ export const authenticatorComponents = {
         //                 // onClick={toForgotPassword}
         //                 // size="sm"
         //                 // variation="outline"
-        //                 color="blue.100"
+        //                 color="gray.700"
         //             >
         //                 Reset Password
         //             </Button>

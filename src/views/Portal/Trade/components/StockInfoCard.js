@@ -8,10 +8,29 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
 
   useEffect(() => {
     if (leagueData.length > 0) {
-      const data = leagueData.find(team => team.TeamName === selectedTeam);
+      const data = leagueData.find(team => team.TeamFullName === selectedTeam);
       setTeamData(data || null);
     }
   }, [leagueData, selectedTeam]);
+
+  const formatPriceChange = (teamData) => {
+    if (!teamData) return '';
+
+    const { CurrentSharePrice, LastClosePrice } = teamData;
+    const priceDifference = CurrentSharePrice - LastClosePrice;
+    const percentChange = (priceDifference / LastClosePrice) * 100;
+
+    const formattedPriceDifference = priceDifference.toFixed(2);
+    const formattedPercentChange = percentChange.toFixed(2);
+
+    if (priceDifference < 0) {
+      return <Text color="red">↓ ${Math.abs(formattedPriceDifference)} ({formattedPercentChange}%)</Text>;
+    } else if (priceDifference > 0) {
+      return <Text color="green">↑ ${formattedPriceDifference} ({formattedPercentChange}%)</Text>;
+    } else {
+      return <Text>${formattedPriceDifference} (0.00%)</Text>;
+    }
+  };
 
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p={4} bg="white">
@@ -28,7 +47,7 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
             textTransform="uppercase"
             pl="7px"
           >
-            {MLB_TEAMS_DICT[selectedTeam].City + " " + selectedTeam}
+            {selectedTeam}
           </Text>
         </Flex>
 
@@ -38,7 +57,9 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
             {teamData ? `$${teamData.CurrentSharePrice}` : ''}
           </Text>
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            ↓ $0.33 (-2.05%)
+            {/*{teamData ? `$${teamData.CurrentSharePrice - teamData.LastClosePrice}` : ''}*/}
+            {/*↓ $0.33 (-2.05%)*/}
+            {formatPriceChange(teamData)}
           </Text>
         </Flex>
 
@@ -48,27 +69,27 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
             Previous Close
           </Text>
           <Text lineHeight="tight" isTruncated>
-            $15.75
+            {teamData ? `$${teamData.LastClosePrice}` : ''}
           </Text>
         </Flex>
 
         <Divider mt="1"/>
         <Flex mt="1" justifyContent="space-between" alignItems="center">
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            High/Low
+            Season High/Low
           </Text>
           <Text lineHeight="tight" isTruncated>
-            $15.99 / $15.41
+            {teamData ? `$${teamData.SeasonHighPrice} / $${teamData.SeasonLowPrice}` : ''}
           </Text>
         </Flex>
 
         <Divider mt="1"/>
         <Flex mt="1" justifyContent="space-between" alignItems="center">
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            Volume
+            Outstanding Shares
           </Text>
           <Text lineHeight="tight" isTruncated>
-            399,288
+            {teamData ? `${teamData.OutstandingShares}` : ''}
           </Text>
         </Flex>
 
@@ -81,7 +102,7 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
         <Divider mt="1"/>
         <Flex mt="2" justifyContent="space-between" alignItems="center">
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            As of 12 Apr 2024, 04:00 p.m. ET
+            As of DD MMM YYYY, 04:00 p.m. ET
           </Text>
           {/*<Text lineHeight="tight" isTruncated>*/}
           {/*  399,288*/}

@@ -48,7 +48,7 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
                       onChange={(e) => setSelectedTeam(e.target.value)}
                     >
                       {Object.entries(MLB_TEAMS_DICT).map(([name, details], index) => (
-                        <option key={index} value={name}>{details.City + " " + name}</option>
+                        <option key={index} value={name}>{name}</option>
                       ))}
                     </Select>
                 </Box>

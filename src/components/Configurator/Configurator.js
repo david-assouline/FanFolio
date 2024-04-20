@@ -76,8 +76,8 @@ export default function Configurator(props) {
                     p="8px 32px"
                     me="8px"
                     colorScheme="teal"
-                    borderColor="blue.100"
-                    color="blue.100"
+                    borderColor="gray.700"
+                    color="gray.700"
                     variant="outline"
                     fontSize="xs"
                     onClick={props.onTransparent}
@@ -86,11 +86,11 @@ export default function Configurator(props) {
                   </Button>
                   <Button
                     type="submit"
-                    bg="blue.100"
+                    bg="gray.700"
                     w="50%"
                     p="8px 32px"
                     mb={5}
-                    _hover="blue.100"
+                    _hover="gray.700"
                     color="white"
                     fontSize="xs"
                     onClick={props.onOpaque}

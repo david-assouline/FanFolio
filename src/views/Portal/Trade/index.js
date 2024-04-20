@@ -27,7 +27,7 @@ export default function Trade() {
   const iconBoxInside = useColorModeValue("white", "white");
 
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedTeam, setSelectedTeam] = useState('Yankees');
+  const [selectedTeam, setSelectedTeam] = useState('New York Yankees');
   const [leagueData, setLeagueData] = useState([]);
 
   const fetchData = async () => {

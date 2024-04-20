@@ -11,7 +11,7 @@ export function SearchBar(props) {
   // Pass the computed styles into the `__css` prop
   const { variant, children, ...rest } = props;
   // Chakra Color Mode
-  const mainTeal = useColorModeValue("blue.100", "blue.100");
+  const mainTeal = useColorModeValue("gray.700", "gray.700");
   const searchIconColor = useColorModeValue("gray.700", "gray.200");
   const inputBg = useColorModeValue("white", "gray.800");
   return (

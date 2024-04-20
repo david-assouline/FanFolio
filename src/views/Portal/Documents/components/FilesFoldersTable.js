@@ -30,9 +30,9 @@ const FilesFoldersTable = ({ title, captions, data, isLoading, folderIsExpanded,
             {title}
           </Text>
           {/*<Button rightIcon={<DownloadIcon w="25px" h="25px" />}*/}
-          {/*        color="blue.100"*/}
+          {/*        color="gray.700"*/}
           {/*        variant="outline"*/}
-          {/*        borderColor="blue.100"*/}
+          {/*        borderColor="gray.700"*/}
           {/*        borderWidth="0px"*/}
           {/*>*/}
           {/*  Download All*/}

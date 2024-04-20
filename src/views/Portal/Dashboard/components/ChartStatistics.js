@@ -3,7 +3,7 @@ import IconBox from "components/Icons/IconBox";
 import React from "react";
 
 const ChartStatistics = ({ title, amount, icon, percentage }) => {
-  const iconTeal = useColorModeValue("blue.100", "blue.100");
+  const iconTeal = useColorModeValue("gray.700", "gray.700");
   const iconBoxInside = useColorModeValue("white", "white");
   const textColor = useColorModeValue("gray.700", "white");
   const overlayRef = React.useRef();

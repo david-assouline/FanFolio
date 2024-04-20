@@ -45,7 +45,7 @@ function TablesTableRow(props) {
         <Button p="0px" bg="transparent" variant="no-hover">
           <Text
             fontSize="md"
-            color="blue.100"
+            color="gray.700"
             fontWeight="bold"
             cursor="pointer"
           >

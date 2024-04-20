@@ -46,9 +46,9 @@ function FolderTableRow({ name, folderData, folderIsExpanded, setFolderIsExpande
         <Td pb="10px" pt="10px">
           <Button
               rightIcon={<ArrowForwardIcon />}
-              color="blue.100"
+              color="gray.700"
               variant="outline"
-              borderColor="blue.100"
+              borderColor="gray.700"
               borderWidth="2px"
               onClick={toggleExpand}
           >

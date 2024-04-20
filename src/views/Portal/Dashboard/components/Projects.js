@@ -30,7 +30,7 @@ const Projects = ({ title, amount, captions, data }) => {
           <Flex align='center'>
             <Icon
               as={IoCheckmarkDoneCircleSharp}
-              color='blue.100'
+              color='gray.700'
               w={4}
               h={4}
               pe='3px'

@@ -53,7 +53,7 @@ function DashboardTableRow(props) {
         <Flex direction="column">
           <Text
             fontSize="md"
-            color="blue.100"
+            color="gray.700"
             fontWeight="bold"
             pb=".2rem"
           >{`${progression}%`}</Text>

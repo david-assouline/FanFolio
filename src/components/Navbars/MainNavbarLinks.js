@@ -28,7 +28,7 @@ export default function MainNavbarLinks(props) {
   const { variant, children, fixed, secondary, onOpen, signOut, user, ...rest } = props;
 
   // Chakra Color Mode
-  let mainTeal = useColorModeValue("blue.100", "blue.100");
+  let mainTeal = useColorModeValue("gray.700", "gray.700");
   let inputBg = useColorModeValue("white", "gray.800");
   let mainText = useColorModeValue("gray.700", "gray.200");
   let navbarIcon = useColorModeValue("gray.500", "gray.200");

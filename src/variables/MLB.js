@@ -31,38 +31,38 @@
 //   {"Name": "Nationals", "City": "Washington", "Symbol": "WSH"}
 // ]
 
-export const MLB_TEAMS_DICT =
-  {
-      'Diamondbacks': {'City': 'Arizona', 'Symbol': 'ARI'},
-      'Braves': {'City': 'Atlanta', 'Symbol': 'ATL'},
-      'Orioles': {'City': 'Baltimore', 'Symbol': 'BAL'},
-      'Red Sox': {'City': 'Boston', 'Symbol': 'BOS'},
-      'Cubs': {'City': 'Chicago', 'Symbol': 'CHC'},
-      'White Sox': {'City': 'Chicago', 'Symbol': 'CHW'},
-      'Reds': {'City': 'Cincinnati', 'Symbol': 'CIN'},
-      'Indians': {'City': 'Cleveland', 'Symbol': 'CLE'},
-      'Rockies': {'City': 'Colorado', 'Symbol': 'COL'},
-      'Tigers': {'City': 'Detroit', 'Symbol': 'DET'},
-      'Astros': {'City': 'Houston', 'Symbol': 'HOU'},
-      'Royals': {'City': 'Kansas City', 'Symbol': 'KC'},
-      'Angels': {'City': 'Los Angeles', 'Symbol': 'LAA'},
-      'Dodgers': {'City': 'Los Angeles', 'Symbol': 'LAD'},
-      'Marlins': {'City': 'Miami', 'Symbol': 'MIA'},
-      'Brewers': {'City': 'Milwaukee', 'Symbol': 'MIL'},
-      'Twins': {'City': 'Minnesota', 'Symbol': 'MIN'},
-      'Mets': {'City': 'New York', 'Symbol': 'NYM'},
-      'Yankees': {'City': 'New York', 'Symbol': 'NYY'},
-      'Athletics': {'City': 'Oakland', 'Symbol': 'OAK'},
-      'Phillies': {'City': 'Philadelphia', 'Symbol': 'PHI'},
-      'Pirates': {'City': 'Pittsburgh', 'Symbol': 'PIT'},
-      'Padres': {'City': 'San Diego', 'Symbol': 'SD'},
-      'Giants': {'City': 'San Francisco', 'Symbol': 'SF'},
-      'Mariners': {'City': 'Seattle', 'Symbol': 'SEA'},
-      'Cardinals': {'City': 'St. Louis', 'Symbol': 'STL'},
-      'Rays': {'City': 'Tampa Bay', 'Symbol': 'TB'},
-      'Rangers': {'City': 'Texas', 'Symbol': 'TEX'},
-      'Blue Jays': {'City': 'Toronto', 'Symbol': 'TOR'},
-      'Nationals': {'City': 'Washington', 'Symbol': 'WSH'}
-  }
+export const MLB_TEAMS_DICT = {
+      'Arizona Diamondbacks': {'City': 'Arizona', 'Name': 'Diamondbacks', 'Symbol': 'ARI'},
+      'Atlanta Braves': {'City': 'Atlanta', 'Name': 'Braves', 'Symbol': 'ATL'},
+      'Baltimore Orioles': {'City': 'Baltimore', 'Name': 'Orioles', 'Symbol': 'BAL'},
+      'Boston Red Sox': {'City': 'Boston', 'Name': 'Red Sox', 'Symbol': 'BOS'},
+      'Chicago Cubs': {'City': 'Chicago', 'Name': 'Cubs', 'Symbol': 'CHC'},
+      'Chicago White Sox': {'City': 'Chicago', 'Name': 'White Sox', 'Symbol': 'CHW'},
+      'Cincinnati Reds': {'City': 'Cincinnati', 'Name': 'Reds', 'Symbol': 'CIN'},
+      'Cleveland Indians': {'City': 'Cleveland', 'Name': 'Indians', 'Symbol': 'CLE'},
+      'Colorado Rockies': {'City': 'Colorado', 'Name': 'Rockies', 'Symbol': 'COL'},
+      'Detroit Tigers': {'City': 'Detroit', 'Name': 'Tigers', 'Symbol': 'DET'},
+      'Houston Astros': {'City': 'Houston', 'Name': 'Astros', 'Symbol': 'HOU'},
+      'Kansas City Royals': {'City': 'Kansas City', 'Name': 'Royals', 'Symbol': 'KC'},
+      'Los Angeles Angels': {'City': 'Los Angeles', 'Name': 'Angels', 'Symbol': 'LAA'},
+      'Los Angeles Dodgers': {'City': 'Los Angeles', 'Name': 'Dodgers', 'Symbol': 'LAD'},
+      'Miami Marlins': {'City': 'Miami', 'Name': 'Marlins', 'Symbol': 'MIA'},
+      'Milwaukee Brewers': {'City': 'Milwaukee', 'Name': 'Brewers', 'Symbol': 'MIL'},
+      'Minnesota Twins': {'City': 'Minnesota', 'Name': 'Twins', 'Symbol': 'MIN'},
+      'New York Mets': {'City': 'New York', 'Name': 'Mets', 'Symbol': 'NYM'},
+      'New York Yankees': {'City': 'New York', 'Name': 'Yankees', 'Symbol': 'NYY'},
+      'Oakland Athletics': {'City': 'Oakland', 'Name': 'Athletics', 'Symbol': 'OAK'},
+      'Philadelphia Phillies': {'City': 'Philadelphia', 'Name': 'Phillies', 'Symbol': 'PHI'},
+      'Pittsburgh Pirates': {'City': 'Pittsburgh', 'Name': 'Pirates', 'Symbol': 'PIT'},
+      'San Diego Padres': {'City': 'San Diego', 'Name': 'Padres', 'Symbol': 'SD'},
+      'San Francisco Giants': {'City': 'San Francisco', 'Name': 'Giants', 'Symbol': 'SF'},
+      'Seattle Mariners': {'City': 'Seattle', 'Name': 'Mariners', 'Symbol': 'SEA'},
+      'St. Louis Cardinals': {'City': 'St. Louis', 'Name': 'Cardinals', 'Symbol': 'STL'},
+      'Tampa Bay Rays': {'City': 'Tampa Bay', 'Name': 'Rays', 'Symbol': 'TB'},
+      'Texas Rangers': {'City': 'Texas', 'Name': 'Rangers', 'Symbol': 'TEX'},
+      'Toronto Blue Jays': {'City': 'Toronto', 'Name': 'Blue Jays', 'Symbol': 'TOR'},
+      'Washington Nationals': {'City': 'Washington', 'Name': 'Nationals', 'Symbol': 'WSH'}
+}
+
 
 

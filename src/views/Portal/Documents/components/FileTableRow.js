@@ -60,7 +60,7 @@ function FileTableRow({ file }) {
       </Td>
       <Td pb="0px" pt="0px">
         <Link href={file.url}>
-          <Button rightIcon={<DownloadIcon />} colorScheme="blue" bg="blue.100" variant="solid">
+          <Button rightIcon={<DownloadIcon />} colorScheme="blue" bg="gray.700" variant="solid">
             Download
           </Button>
         </Link>
