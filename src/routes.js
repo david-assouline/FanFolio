@@ -1,5 +1,5 @@
 // import
-import Dashboard from "views/Portal/Dashboard";
+import Dashboard from "views/Portal/Home";
 import Tables from "views/Portal/Tables";
 import Billing from "views/Portal/Billing";
 import Profile from "views/Portal/Profile";

@@ -24,8 +24,8 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
     const formattedPercentChange = percentChange.toFixed(2);
 
     if (priceDifference < 0) {
-      return <Text color="red">↓ ${Math.abs(formattedPriceDifference)} ({formattedPercentChange}%)</Text>;
-    } else if (priceDifference > 0) {
+      return <Text color="red.500">↓ ${Math.abs(formattedPriceDifference)} ({formattedPercentChange}%)</Text>;
+    } else if (priceDifference >= 0) {
       return <Text color="green">↑ ${formattedPriceDifference} ({formattedPercentChange}%)</Text>;
     } else {
       return <Text>${formattedPriceDifference} (0.00%)</Text>;
@@ -57,8 +57,6 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
             {teamData ? `$${teamData.CurrentSharePrice}` : ''}
           </Text>
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            {/*{teamData ? `$${teamData.CurrentSharePrice - teamData.LastClosePrice}` : ''}*/}
-            {/*↓ $0.33 (-2.05%)*/}
             {formatPriceChange(teamData)}
           </Text>
         </Flex>
@@ -102,12 +100,12 @@ const StockInfoCard = ({ selectedTeam, leagueData }) => {
         <Divider mt="1"/>
         <Flex mt="2" justifyContent="space-between" alignItems="center">
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            As of DD MMM YYYY, 04:00 p.m. ET
+            As of {teamData ? `${teamData.LastRefreshDateTime}` : ''}
           </Text>
           {/*<Text lineHeight="tight" isTruncated>*/}
           {/*  399,288*/}
           {/*</Text>*/}
-          <RepeatIcon></RepeatIcon>
+          {/*<RepeatIcon></RepeatIcon>*/}
         </Flex>
         <Divider mt="2"/>
       </Box>

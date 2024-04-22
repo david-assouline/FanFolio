@@ -39,7 +39,7 @@ export const MLB_TEAMS_DICT = {
       'Chicago Cubs': {'City': 'Chicago', 'Name': 'Cubs', 'Symbol': 'CHC'},
       'Chicago White Sox': {'City': 'Chicago', 'Name': 'White Sox', 'Symbol': 'CHW'},
       'Cincinnati Reds': {'City': 'Cincinnati', 'Name': 'Reds', 'Symbol': 'CIN'},
-      'Cleveland Indians': {'City': 'Cleveland', 'Name': 'Indians', 'Symbol': 'CLE'},
+      'Cleveland Guardians': {'City': 'Cleveland', 'Name': 'Indians', 'Symbol': 'CLE'},
       'Colorado Rockies': {'City': 'Colorado', 'Name': 'Rockies', 'Symbol': 'COL'},
       'Detroit Tigers': {'City': 'Detroit', 'Name': 'Tigers', 'Symbol': 'DET'},
       'Houston Astros': {'City': 'Houston', 'Name': 'Astros', 'Symbol': 'HOU'},

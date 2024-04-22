@@ -19,7 +19,7 @@ import {
   WalletIcon,
 } from "components/Icons/Icons.js";
 import React, { useEffect, useState } from "react";
-import MiniStatistics from "../Dashboard/components/MiniStatistics";
+import MiniStatistics from "../Home/components/MiniStatistics";
 import OrderForm from "./components/OrderForm";
 import StockInfoCard from "./components/StockInfoCard";
 
@@ -33,7 +33,7 @@ export default function Trade() {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      let response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB`);
+      let response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB&type=GET_ALL`);
       let data = await response.json();
       console.log(data)
       setLeagueData(data);
