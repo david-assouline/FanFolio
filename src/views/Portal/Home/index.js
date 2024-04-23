@@ -89,13 +89,13 @@ export default function Dashboard() {
         gap='24px'>
         <TopFiveTable
           title={"Top Performers"}
-          captions={["Team", "Price", "% Change (24H)"]}
+          captions={["Team", "Price", "Change (24H)"]}
           data={topFiveData}
           isLoading={isLoading}
         />
         <TopFiveTable
           title={"Worst Performers"}
-          captions={["Team", "Price", "% Change (24H)"]}
+          captions={["Team", "Price", "Change (24H)"]}
           data={topFiveData}
           isLoading={isLoading}
         />

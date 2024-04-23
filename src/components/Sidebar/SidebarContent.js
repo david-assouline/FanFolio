@@ -222,10 +222,10 @@ const SidebarContent = ({ logoText, routes }) => {
     </Box>
           <Stack direction="column" mb="40px">
               <Flex align="center" mb="2">
-                  <Avatar size="md" name={userAttributes.nickname} bg="gray.700" textColor="white" src="" />{" "}
+                  <Avatar size="md" name={userAttributes['custom:Username']} bg="gray.700" textColor="white" src="" />{" "}
                   <Box ml="3">
-                      <Text fontSize="sm" fontWeight="bold">{userAttributes.nickname}</Text>
-                      <Text fontSize="xs">{userAttributes.email}</Text>
+                      <Text fontSize="sm" fontWeight="bold">{userAttributes['custom:Username']}</Text>
+                      <Text fontSize="xs">{userAttributes['email']}</Text>
                   </Box>
               </Flex>
               <Separator></Separator>

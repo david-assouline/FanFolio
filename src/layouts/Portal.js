@@ -123,7 +123,7 @@ export default function Dashboard(props) {
 				) : null}
 				<Footer />
 				<Portal>
-					<FixedPlugin secondary={getActiveNavbar(routes)} fixed={fixed} onOpen={onOpen} />
+					{/*<FixedPlugin secondary={getActiveNavbar(routes)} fixed={fixed} onOpen={onOpen} />*/}
 				</Portal>
 				<Configurator
 					secondary={getActiveNavbar(routes)}
