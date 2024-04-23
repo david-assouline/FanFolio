@@ -13,7 +13,7 @@ import IconBox from "components/Icons/IconBox";
 import { Separator } from "components/Separator/Separator";
 import React, {useEffect, useState} from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import fullScsLogo from "assets/img/full-scs-design-financier-logo-web.png";
+import ffBannerLogo from "assets/img/FF-Banner-transparent-background.png";
 import {handleFetchUserAttributes} from "../../toolkit/cognito";
 import { signOut } from "aws-amplify/auth";
 
@@ -212,7 +212,7 @@ const SidebarContent = ({ logoText, routes }) => {
         alignItems="center"
         fontSize="11px"
       >
-          <Image src={fullScsLogo} me="5px" />
+          <Image src={ffBannerLogo} me="5px" />
         {/*<Text fontSize="sm" mt="3px">*/}
         {/*  {logoText}*/}
         {/*</Text>*/}
