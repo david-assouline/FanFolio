@@ -37,7 +37,6 @@ const SidebarContent = ({ logoText, routes }) => {
         const fetchUserAttributes = async () => {
             try {
                 const attributes = await handleFetchUserAttributes();
-                console.log(attributes)
                 setUserAttributes(attributes);
             } catch (error) {
                 console.error('Error fetching user attributes:', error);

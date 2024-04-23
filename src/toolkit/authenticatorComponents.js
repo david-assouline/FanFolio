@@ -40,7 +40,7 @@ export const authenticatorComponents = {
                 >
                     &copy; {1900 + new Date().getYear()}{" "}
                     <Text as="span">
-                        {"SCS Design Financier inc. "}
+                        {"FanFolio"}
                     </Text>
                 </Text>
             </Box>

@@ -48,7 +48,7 @@ function Sidebar(props) {
           borderRadius={sidebarRadius}
         >
           <SidebarContent routes={routes}
-        logoText={"SCS DESIGN FINANCIER"}
+        logoText={"FanFolio"}
         display="none"
         sidebarVariant={sidebarVariant}
         />
