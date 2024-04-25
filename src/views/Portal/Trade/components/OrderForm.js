@@ -29,9 +29,9 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam, teamData }) => {
 
   const getFormData = () => {
     return {
-      selectedTeam,
+      selected_team: selectedTeam,
       action,
-      username: userAttributes['custom:Username'],
+      cognito_user_id: userAttributes.sub,
       quantity: parseInt(quantity, 10),
       orderType
     };
