@@ -11,19 +11,44 @@ import {
 // Custom components
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MLB_TEAMS_DICT } from 'variables/MLB.js';
 // react icons
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import OrderPreviewModal from "./OrderPreviewModal";
+import { handleFetchUserAttributes } from "../../../../toolkit/cognito";
 
-const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
+const OrderForm = ({ title, selectedTeam, setSelectedTeam, teamData }) => {
   const textColor = useColorModeValue("gray.700", "white");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [action, setAction] = useState('buy');
   const [orderType, setOrderType] = useState('market');
   const [quantity, setQuantity] = useState(0);
+  const [userAttributes, setUserAttributes] = useState({});
+
+  const getFormData = () => {
+    return {
+      selectedTeam,
+      action,
+      username: userAttributes['custom:Username'],
+      quantity: parseInt(quantity, 10),
+      orderType
+    };
+  };
+
+  useEffect(() => {
+    const fetchUserAttributes = async () => {
+      try {
+        const attributes = await handleFetchUserAttributes();
+        setUserAttributes(attributes);
+      } catch (error) {
+        console.error('Error fetching user attributes:', error);
+      }
+    };
+
+    fetchUserAttributes();
+  }, []);
 
   return (
     <Card minHeight='290.5px' p='1.2rem'>
@@ -126,7 +151,10 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
                   rightIcon={<ExternalLinkIcon />}
                   variant="outline"
                   mt="3"
-                  onClick={onOpen}  // Use onOpen function to open the modal
+                  onClick={() => {
+                    const formData = getFormData();
+                    onOpen();
+                  }}
                   bg='white'
                   color='black'
                   borderRadius="10px"
@@ -139,8 +167,12 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam }) => {
                   Preview Order
                 </Button>
 
-                {/* Use the imported Modal component */}
-                <OrderPreviewModal isOpen={isOpen} onClose={onClose} />
+                <OrderPreviewModal
+                  isOpen={isOpen}
+                  onClose={onClose}
+                  teamData={teamData}
+                  formData={getFormData()}
+                />
               </>
             </Stack>
           </Flex>

@@ -3,8 +3,8 @@ import { Box, Text, Divider, Flex, Badge, VStack } from "@chakra-ui/react";
 import { RepeatIcon } from "@chakra-ui/icons";
 import { MLB_TEAMS_DICT } from "../../../../variables/MLB";
 
-const StockInfoCard = ({ selectedTeam, leagueData }) => {
-  const [teamData, setTeamData] = useState(null);
+const StockInfoCard = ({ selectedTeam, leagueData, teamData, setTeamData }) => {
+
 
   useEffect(() => {
     if (leagueData.length > 0) {

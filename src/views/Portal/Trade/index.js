@@ -3,8 +3,8 @@ import {
   Flex,
   Grid,
   Image,
-  SimpleGrid,
-  useColorModeValue,
+  SimpleGrid, Skeleton, Stack,
+  useColorModeValue
 } from "@chakra-ui/react";
 // assets
 import peopleImage from "assets/img/people-image.png";
@@ -16,7 +16,7 @@ import {
   CartIcon,
   DocumentIcon,
   GlobeIcon,
-  WalletIcon,
+  WalletIcon
 } from "components/Icons/Icons.js";
 import React, { useEffect, useState } from "react";
 import MiniStatistics from "../Home/components/MiniStatistics";
@@ -27,31 +27,32 @@ export default function Trade() {
   const iconBoxInside = useColorModeValue("white", "white");
 
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedTeam, setSelectedTeam] = useState('New York Yankees');
+  const [selectedTeam, setSelectedTeam] = useState("New York Yankees");
   const [leagueData, setLeagueData] = useState([]);
+  const [teamData, setTeamData] = useState(null);
 
   const fetchData = async () => {
     try {
       setIsLoading(true);
       let response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB&type=GET_ALL`);
       let data = await response.json();
-      console.log(data)
+      console.log(data);
       setLeagueData(data);
 
     } catch (error) {
-      console.error('Error fetching data: ', error);
+      console.error("Error fetching data: ", error);
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData()
+    fetchData();
   }, []);
 
   return (
-    <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
-      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
+    <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
+      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
         <MiniStatistics
           title={"Available funds"}
           amount={"$1,337"}
@@ -73,27 +74,41 @@ export default function Trade() {
           icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
       </SimpleGrid>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <Grid
-            templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
-            templateRows={{ md: "1fr auto", lg: "1fr" }}
-            my='26px'
-            gap='24px'>
+      <Grid
+        templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
+        templateRows={{ md: "1fr auto", lg: "1fr" }}
+        my="26px"
+        gap="24px">
+        {isLoading ? (
+          <>
+            <Stack>
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+            </Stack>
+            <Stack>
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+            </Stack>
+          </>
+        ) : (
+          <>
             <OrderForm
               title={"Buy & Sell"}
               selectedTeam={selectedTeam}
               setSelectedTeam={setSelectedTeam}
+              teamData={teamData}
             />
             <StockInfoCard
               selectedTeam={selectedTeam}
               leagueData={leagueData}
+              teamData={teamData}
+              setTeamData={setTeamData}
             />
-          </Grid>
-        </>
-      )}
+          </>
+        )}
+      </Grid>
     </Flex>
   );
 }

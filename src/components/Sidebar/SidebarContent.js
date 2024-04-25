@@ -206,7 +206,7 @@ const SidebarContent = ({ logoText, routes }) => {
         target="_blank"
         display="flex"
         lineHeight="100%"
-        mb="30px"
+        mb="15px"
         fontWeight="bold"
         justifyContent="center"
         alignItems="center"

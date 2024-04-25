@@ -9,13 +9,13 @@ import awsExports from './aws-exports';
 // Layouts
 import AuthLayout from 'layouts/Auth.js';
 import MainLayout from 'layouts/Portal.js';
-import {formFields, authenticatorComponents} from "./toolkit/authenticatorComponents";
+import {formFields, cognitoComponents} from "./toolkit/cognitoComponents";
 
 Amplify.configure(awsExports);
 
 function App() {
     return (
-        <Authenticator formFields={formFields} components={authenticatorComponents} hi>
+        <Authenticator formFields={formFields} components={cognitoComponents} hi>
             {({ signOut, user }) => (
                 user ? (
                     <HashRouter>

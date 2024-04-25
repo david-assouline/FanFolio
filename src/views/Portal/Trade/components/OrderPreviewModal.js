@@ -1,5 +1,5 @@
 // OrderPreviewModal.js
-import React from 'react';
+import React from "react";
 import {
   Modal,
   ModalOverlay,
@@ -7,12 +7,11 @@ import {
   ModalHeader,
   ModalBody,
   ModalFooter,
-  ModalCloseButton,
   Button,
-  Text, Stack, HStack, FormControl, FormLabel, Select, Input, Box
+  Text, Stack, HStack, FormControl, FormLabel, Box
 } from "@chakra-ui/react";
 
-const OrderPreviewModal = ({ isOpen, onClose, orderDetails }) => {
+const OrderPreviewModal = ({ isOpen, onClose, formData, teamData }) => {
   return (
     <Modal
       isOpen={isOpen}
@@ -21,31 +20,29 @@ const OrderPreviewModal = ({ isOpen, onClose, orderDetails }) => {
     >
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>TSLA TESLA, INC. CDR (CAD HEDGED)</ModalHeader>
+        <ModalHeader>{formData.selectedTeam}</ModalHeader>
         <ModalBody>
           <Stack spacing={4}>
             <HStack justifyContent="space-between">
               <FormControl id="action">
                 <FormLabel>Action</FormLabel>
-                Buy
+                {formData.action}
               </FormControl>
               <FormControl id="quantity">
                 <FormLabel>Quantity</FormLabel>
-                1
+                {formData.quantity}
               </FormControl>
               <FormControl id="price-type">
                 <FormLabel>Order Type</FormLabel>
-                Market
+                {formData.orderType}
+              </FormControl>
+              <FormControl id="total-cose">
+                <FormLabel>Total Cost</FormLabel>
+                <Text fontWeight="semibold" lineHeight="tight" isTruncated>
+                  {teamData ? `$${(formData.quantity * teamData.CurrentSharePrice).toFixed(2)}` : ""}
+                </Text>
               </FormControl>
             </HStack>
-            <Box>
-              <Text fontSize="lg" fontWeight="bold">
-                Est. Total
-                <Text as="span" fontWeight="normal">
-                  $24.42
-                </Text>
-              </Text>
-            </Box>
           </Stack>
         </ModalBody>
         <ModalFooter>
@@ -57,6 +54,6 @@ const OrderPreviewModal = ({ isOpen, onClose, orderDetails }) => {
       </ModalContent>
     </Modal>
   );
-}
+};
 
 export default OrderPreviewModal;

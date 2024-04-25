@@ -2,10 +2,11 @@
     --amplify-components-authenticator-router-box-shadow: 0 0 8px var(--amplify-colors-overlay-10);
     --amplify-components-authenticator-router-border-width: 0;
     --amplify-components-authenticator-form-padding: var(--amplify-space-medium) var(--amplify-space-xl) var(--amplify-space-xl);
-    --amplify-components-button-primary-background-color: #0f2c52;
-    --amplify-components-fieldcontrol-focus-box-shadow: 0 0 0 2px #0f2c52;
-    --amplify-components-tabs-item-active-border-color: #0f2c52;
+    --amplify-components-button-primary-background-color: #38A169;
+    --amplify-components-button-primary-hover-background-color: #256b45;
+    --amplify-components-fieldcontrol-focus-box-shadow: 0 0 0 2px #38A169;
+    --amplify-components-tabs-item-active-border-color: #38A169;
     --amplify-components-tabs-item-color: var(--amplify-colors-neutral-80);
-    --amplify-components-tabs-item-active-color: var(--amplify-colors-purple-100);
+    --amplify-components-tabs-item-active-color: #000000;
     --amplify-components-button-link-color: #0f2c52;
 }

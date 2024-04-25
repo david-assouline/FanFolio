@@ -1,16 +1,16 @@
 import {Authenticator, useAuthenticator, Button} from "@aws-amplify/ui-react";
 import {Text, Image, Box, Heading} from "@chakra-ui/react";
 import React from "react";
-import fullScsLogo from "assets/img/full-scs-design-financier-logo-web.png";
+import ffBannerLogo from "assets/img/FF-Banner-transparent-background.png";
 import './styles.css';
-export const authenticatorComponents = {
+export const cognitoComponents = {
     Header() {
         // const { tokens } = useTheme();
 
         return (
             <Box
                 pt={"25px"}
-                mb="12px"
+                mb="25px"
                 lineHeight="100%"
                 display="flex"
                 justifyContent="center"
@@ -18,7 +18,7 @@ export const authenticatorComponents = {
                 textAlign="center"
             >
                 <Image
-                    src={fullScsLogo}
+                    src={ffBannerLogo}
                     w="260px"
                     h="90px"
                 />
@@ -189,15 +189,22 @@ export const formFields = {
         },
     },
     signUp: {
+        username: {
+            label: 'Username:',
+            placeholder: 'Enter your Username:',
+            isRequired: true,
+            order: 1,
+        },
         password: {
             label: 'Password:',
             placeholder: 'Enter your Password:',
-            isRequired: false,
-            order: 1,
+            isRequired: true,
+            order: 2,
         },
         confirm_password: {
             label: 'Confirm Password:',
-            order: 2,
+            isRequired: true,
+            order: 3,
         },
     },
     forceNewPassword: {
