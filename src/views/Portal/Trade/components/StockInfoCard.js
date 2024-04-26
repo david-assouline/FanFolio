@@ -91,16 +91,10 @@ const StockInfoCard = ({ selectedTeam, leagueData, teamData, setTeamData }) => {
           </Text>
         </Flex>
 
-        {/*<Divider mt="1"/>*/}
-        {/*<Text color="gray.500" isTruncated mt={1}>*/}
-        {/*  As of 12 Apr 2024, 04:00 p.m. ET*/}
-        {/*</Text>*/}
-
-
         <Divider mt="1"/>
         <Flex mt="2" justifyContent="space-between" alignItems="center">
           <Text color="gray.600" fontSize="sm" lineHeight="tight" isTruncated>
-            As of {teamData ? `${teamData.LastRefreshDateTime}` : ''}
+            Last Updated {teamData ? `${new Date(teamData.LastRefreshDateTimeEST).toLocaleString()}` : ''}
           </Text>
           {/*<Text lineHeight="tight" isTruncated>*/}
           {/*  399,288*/}

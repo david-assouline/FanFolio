@@ -36,7 +36,7 @@ export default function Trade() {
       setIsLoading(true);
       let response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB&type=GET_ALL`);
       let data = await response.json();
-      console.log(data);
+      // console.log(data);
       setLeagueData(data);
 
     } catch (error) {

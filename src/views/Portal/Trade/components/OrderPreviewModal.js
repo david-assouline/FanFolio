@@ -17,12 +17,23 @@ const OrderPreviewModal = ({ isOpen, onClose, formData, teamData }) => {
   const submitOrder = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB&type=BUY", {
+      // Base URL
+      const baseURL = "https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api";
+
+      let params = new URLSearchParams({
+        league: 'MLB',
+        type: formData.action.toUpperCase()
+      });
+
+      const url = `${baseURL}?${params.toString()}`;
+
+      const response = await fetch(url, {
         method: "POST",
         body: JSON.stringify({
           orderData: formData
         })
       });
+
       const data = await response;
       console.log(data.status);
       onClose();
@@ -45,7 +56,7 @@ const OrderPreviewModal = ({ isOpen, onClose, formData, teamData }) => {
         <ModalBody>
           <Stack spacing={4}>
             {isLoading ? (
-              <CircularProgress isIndeterminate color="green.300" mx="auto" my="20px" />  // Centered in the modal body
+              <CircularProgress isIndeterminate color="green.500" mx="auto" my="20px" />
             ) : (
               <HStack justifyContent="space-between">
                 <FormControl id="action">

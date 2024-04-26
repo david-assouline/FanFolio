@@ -1,22 +1,17 @@
 // import
 import Dashboard from "views/Portal/Home";
-import Tables from "views/Portal/Tables";
-import Billing from "views/Portal/Billing";
-import Profile from "views/Portal/Profile";
-import SignIn from "views/Auth/SignIn.js";
-import SignUp from "views/Auth/SignUp.js";
-import Documents from "./views/Portal/Documents";
 
 import {
   HomeIcon,
-  StatsIcon,
-  CreditIcon,
-  PersonIcon,
   DocumentIcon,
-  RocketIcon,
-  SupportIcon,
 } from "components/Icons/Icons";
+import { BsGraphUp } from "react-icons/bs";
+
+
 import Trade from "./views/Portal/Trade";
+import Holdings from "./views/Portal/Holdings";
+
+
 
 var dashRoutes = [
   {
@@ -34,10 +29,10 @@ var dashRoutes = [
     layout: "/portal",
   },
   {
-    path: "/portfolio",
-    name: "Portfolio",
-    icon: <HomeIcon color="inherit" />,
-    component: Dashboard,
+    path: "/holdings",
+    name: "Holdings",
+    icon: <BsGraphUp color="inherit"/>,
+    component: Holdings,
     layout: "/portal",
   },
   // {
