@@ -1,15 +1,14 @@
-// import
-import Dashboard from "views/Portal/Home";
-
 import {
   HomeIcon,
-  DocumentIcon,
 } from "components/Icons/Icons";
 import { BsGraphUp } from "react-icons/bs";
 
 
-import Trade from "./views/Portal/Trade";
+import Markets from "./views/Portal/Markets";
 import Holdings from "./views/Portal/Holdings";
+import Home from "views/Portal/Home";
+import { FaExchangeAlt } from "react-icons/fa";
+import { MdLeaderboard } from "react-icons/md";
 
 
 
@@ -18,20 +17,27 @@ var dashRoutes = [
     path: "/home",
     name: "Home",
     icon: <HomeIcon color="inherit" />,
-    component: Dashboard,
+    component: Home,
     layout: "/portal",
   },
   {
-    path: "/trade",
-    name: "Trade",
-    icon: <DocumentIcon color="inherit" />,
-    component: Trade,
+    path: "/markets",
+    name: "Markets",
+    icon: <FaExchangeAlt color="inherit" />,
+    component: Markets,
     layout: "/portal",
   },
   {
     path: "/holdings",
     name: "Holdings",
     icon: <BsGraphUp color="inherit"/>,
+    component: Holdings,
+    layout: "/portal",
+  },
+  {
+    path: "/rankings",
+    name: "Rankings",
+    icon: <MdLeaderboard color="inherit"/>,
     component: Holdings,
     layout: "/portal",
   },

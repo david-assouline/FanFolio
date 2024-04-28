@@ -29,7 +29,6 @@ const SidebarContent = ({ logoText, routes }) => {
         try {
             await signOut();
         } catch (error) {
-            console.log('error signing out: ', error);
         }
     }
 

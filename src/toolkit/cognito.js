@@ -4,7 +4,7 @@ export async function handleFetchUserAttributes() {
     try {
         return await fetchUserAttributes();
     } catch (error) {
-        console.log(error);
+
     }
 }
 

@@ -5,7 +5,6 @@ import { MLB_TEAMS_DICT } from "../../../../variables/MLB";
 
 const StockInfoCard = ({ selectedTeam, leagueData, teamData, setTeamData }) => {
 
-
   useEffect(() => {
     if (leagueData.length > 0) {
       const data = leagueData.find(team => team.TeamFullName === selectedTeam);
@@ -33,7 +32,7 @@ const StockInfoCard = ({ selectedTeam, leagueData, teamData, setTeamData }) => {
   };
 
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" p={4} bg="white">
+    <Box maxW="sm" borderRadius="lg" overflow="hidden" p={4} bg="white">
       <Box p="6">
         <Flex alignItems="baseline">
           <Badge ml="1" fontSize="0.8em" colorScheme="green">

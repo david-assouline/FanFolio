@@ -1,5 +1,6 @@
 // Chakra imports
 import {
+  CircularProgress,
   Flex,
   Grid,
   Image,
@@ -19,12 +20,13 @@ import {
   WalletIcon
 } from "components/Icons/Icons.js";
 import React, { useEffect, useState } from "react";
-import MiniStatistics from "../Home/components/MiniStatistics";
 import OrderForm from "./components/OrderForm";
 import StockInfoCard from "./components/StockInfoCard";
+import UserInfo from "../../../components/UserInfo";
 
-export default function Trade() {
+export default function Markets(props) {
   const iconBoxInside = useColorModeValue("white", "white");
+  const { userData } = props;
 
   const [isLoading, setIsLoading] = useState(true);
   const [selectedTeam, setSelectedTeam] = useState("New York Yankees");
@@ -36,11 +38,9 @@ export default function Trade() {
       setIsLoading(true);
       let response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?league=MLB&type=GET_ALL`);
       let data = await response.json();
-      // console.log(data);
       setLeagueData(data);
 
     } catch (error) {
-      console.error("Error fetching data: ", error);
     } finally {
       setIsLoading(false);
     }
@@ -52,28 +52,7 @@ export default function Trade() {
 
   return (
     <Flex flexDirection="column" pt={{ base: "120px", md: "75px" }}>
-      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing="24px">
-        <MiniStatistics
-          title={"Available funds"}
-          amount={"$1,337"}
-          icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Portfolio Value"}
-          amount={"$8,800"}
-          icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"P/L"}
-          amount={"+$3,020"}
-          icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Total Trades"}
-          amount={"26"}
-          icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-      </SimpleGrid>
+      <UserInfo userData={userData}/>
       <Grid
         templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
         templateRows={{ md: "1fr auto", lg: "1fr" }}
@@ -81,16 +60,8 @@ export default function Trade() {
         gap="24px">
         {isLoading ? (
           <>
-            <Stack>
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-            </Stack>
-            <Stack>
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-            </Stack>
+            <CircularProgress isIndeterminate color="green.500" mx="auto" my="20px" />
+            <CircularProgress isIndeterminate color="green.500" mx="auto" my="20px" />
           </>
         ) : (
           <>

@@ -18,8 +18,8 @@ function UserHoldingsTableRow(props) {
   const formatPriceChange = () => {
     if (!bookValue) return '';
 
-    const marketValue = quantity * sharePrice; // Ensure `quantity` is defined
-    const priceDifference = marketValue - bookValue;
+    const marketValue = quantity * sharePrice;
+    const priceDifference = marketValue.toFixed(2) - bookValue.toFixed(2);
     const percentChange = (priceDifference / bookValue) * 100;
 
     const formattedPriceDifference = priceDifference.toFixed(2);
@@ -37,7 +37,7 @@ function UserHoldingsTableRow(props) {
 
   return (
     <Tr>
-      <Td minWidth={{ sm: "250px" }} pl="0px">
+      <Td minWidth={{ sm: "175px" }} pl="0px">
         <Flex align="center" py=".2rem" minWidth="100%" flexWrap="nowrap">
           <Text
             fontSize="md"
@@ -68,7 +68,7 @@ function UserHoldingsTableRow(props) {
         </Text>
       </Td>
 
-      <Td>
+      <Td minWidth="175px">
         <Text fontSize="md" color={textColor} fontWeight="semi-bold" pb=".5rem">
           {formatPriceChange()}
         </Text>

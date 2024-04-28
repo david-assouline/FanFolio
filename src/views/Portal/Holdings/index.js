@@ -13,12 +13,13 @@ import {
   WalletIcon,
 } from "components/Icons/Icons.js";
 import React, { useEffect, useState } from "react";
-import MiniStatistics from "./components/MiniStatistics";
 import UserHoldingsTable from "./components/UserHoldingsTable";
 import { handleFetchUserAttributes } from "../../../toolkit/cognito";
+import UserInfo from "../../../components/UserInfo";
 
-export default function Holdings() {
+export default function Holdings(props) {
   const iconBoxInside = useColorModeValue("white", "white");
+  const { userData } = props;
 
   const [isLoading, setIsLoading] = useState(true);
   const [holdingsData, setHoldingsData] = useState({});
@@ -44,7 +45,6 @@ export default function Holdings() {
 
       let data = await response.json();
       setHoldingsData(data)
-      console.log(data);
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -67,34 +67,9 @@ export default function Holdings() {
 
   return (
     <Flex flexDirection='column' pt={{ base: "120px", md: "75px" }}>
-      <SimpleGrid columns={{ sm: 1, md: 2, xl: 4 }} spacing='24px'>
-        <MiniStatistics
-          title={"Today's Moneys"}
-          amount={"$53,000"}
-          percentage={55}
-          icon={<WalletIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Today's Users"}
-          amount={"2,300"}
-          percentage={5}
-          icon={<GlobeIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"New Clients"}
-          amount={"+3,020"}
-          percentage={-14}
-          icon={<DocumentIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-        <MiniStatistics
-          title={"Total Sales"}
-          amount={"$173,000"}
-          percentage={8}
-          icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
-        />
-      </SimpleGrid>
+      <UserInfo userData={userData}/>
       <Grid
-        templateColumns={{ sm: "1fr", md: "1.5fr 1fr", lg: "1.5fr 1fr" }}
+        templateColumns={{ sm: "1fr", md: "2fr 1fr", lg: "2fr 1fr" }}
         templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}
         my='26px'
         gap='24px'>
@@ -104,12 +79,6 @@ export default function Holdings() {
           data={holdingsData}
           isLoading={isLoading}
         />
-        {/*<UserHoldingsTable*/}
-        {/*  title={"Worst Performers"}*/}
-        {/*  captions={["Team", "Price", "Change (24H)"]}*/}
-        {/*  data={topFiveData}*/}
-        {/*  isLoading={isLoading}*/}
-        {/*/>*/}
       </Grid>
     </Flex>
   );

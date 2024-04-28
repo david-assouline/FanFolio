@@ -8,7 +8,7 @@ import awsExports from './aws-exports';
 
 // Layouts
 import AuthLayout from 'layouts/Auth.js';
-import MainLayout from 'layouts/Portal.js';
+import MainLayout from './layouts/Main.js';
 import {formFields, cognitoComponents} from "./toolkit/cognitoComponents";
 
 Amplify.configure(awsExports);

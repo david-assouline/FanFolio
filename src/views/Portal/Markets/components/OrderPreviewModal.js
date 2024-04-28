@@ -35,7 +35,6 @@ const OrderPreviewModal = ({ isOpen, onClose, formData, teamData }) => {
       });
 
       const data = await response;
-      console.log(data.status);
       onClose();
     } catch (error) {
       console.error("Error submitting order:", error);
