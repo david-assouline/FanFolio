@@ -1,4 +1,4 @@
-import {Authenticator, useAuthenticator, Button} from "@aws-amplify/ui-react";
+import { Authenticator, useAuthenticator, Button, useTheme } from "@aws-amplify/ui-react";
 import {Text, Image, Box, Heading} from "@chakra-ui/react";
 import React from "react";
 import ffBannerLogo from "assets/img/FF-Banner-transparent-background.png";
@@ -156,7 +156,7 @@ export const cognitoComponents = {
                 <Heading
                     level={3}
                 >
-                    Enter Information:
+                    Forgot Password
                 </Heading>
             );
         },
@@ -166,13 +166,11 @@ export const cognitoComponents = {
     },
     ConfirmResetPassword: {
         Header() {
-            const { tokens } = useTheme();
             return (
                 <Heading
-                    padding={`${tokens.space.xl} 0 0 ${tokens.space.xl}`}
-                    level={3}
+                  level={3}
                 >
-                    Enter Information:
+                    Forgot Password
                 </Heading>
             );
         },
@@ -214,12 +212,12 @@ export const formFields = {
     },
     forgotPassword: {
         username: {
-            placeholder: 'Enter your email:',
+            placeholder: '',
         },
     },
     confirmResetPassword: {
         confirmation_code: {
-            placeholder: 'SMS Code:',
+            placeholder: '',
             isRequired: true,
         },
         confirm_password: {

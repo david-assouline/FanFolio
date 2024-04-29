@@ -23,11 +23,11 @@ function TopFiveTableRow(props) {
     const formattedPercentChange = percentChange.toFixed(2);
 
     if (priceDifference < 0) {
-      return <Text color="red.500">↓ ${Math.abs(formattedPriceDifference)} ({formattedPercentChange}%)</Text>;
+      return <Text color="red.500">{formattedPriceDifference} ({formattedPercentChange}%)</Text>;
     } else if (priceDifference >= 0) {
-      return <Text color="green">↑ ${formattedPriceDifference} ({formattedPercentChange}%)</Text>;
+      return <Text color="green">+{formattedPriceDifference} ({formattedPercentChange}%)</Text>;
     } else {
-      return <Text>${formattedPriceDifference} (0.00%)</Text>;
+      return <Text>{formattedPriceDifference} (0.00%)</Text>;
     }
   };
 
