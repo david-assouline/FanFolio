@@ -217,11 +217,11 @@ export const formFields = {
     },
     confirmResetPassword: {
         confirmation_code: {
-            placeholder: '',
+            placeholder: 'Email Confirmation Code',
             isRequired: true,
         },
         confirm_password: {
-            placeholder: 'Enter your Password Please:',
+            placeholder: 'Confirm New Password',
         },
     },
     setupTotp: {
