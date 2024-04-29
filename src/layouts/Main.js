@@ -137,7 +137,7 @@ export default function Main(props) {
         <Portal>
           <MainNavbar
             onOpen={onOpen}
-            logoText={"Spectrum Solutions Dashboard"}
+            logoText={"FanFolio"}
             brandText={getActiveRoute(routes)}
             secondary={getActiveNavbar(routes)}
             fixed={fixed}

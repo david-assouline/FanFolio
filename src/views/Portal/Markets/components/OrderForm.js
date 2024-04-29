@@ -77,8 +77,13 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam, teamData }) => {
                       ))}
                     </Select>
                 </Box>
-            <Flex alignItems="baseline" justifyContent="space-between" mb="2">
-              <Flex direction="column" mr="4">
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              alignItems="baseline"
+              justifyContent="space-between"
+              my="2"
+            >
+              <Flex direction="column" mr={{ base: 0, md: 4 }}>
                 <Text mt="3">Action</Text>
                 <ButtonGroup isAttached variant="outline">
                   <Button
@@ -107,7 +112,7 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam, teamData }) => {
                   </Button>
                 </ButtonGroup>
               </Flex>
-              <Flex direction="column">
+              <Flex direction="column" mt={{ base: 4, md: 0 }}>
                 <Text mt="3">Quantity</Text>
                 <Input
                   value={quantity}
@@ -163,6 +168,7 @@ const OrderForm = ({ title, selectedTeam, setSelectedTeam, teamData }) => {
                   _hover={{
                     bg: 'gray.200',
                   }}
+                  isDisabled={!quantity || parseInt(quantity, 10) <= 0}
                 >
                   Preview Order
                 </Button>
