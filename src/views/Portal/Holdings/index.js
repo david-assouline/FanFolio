@@ -6,12 +6,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Custom icons
-import {
-  CartIcon,
-  DocumentIcon,
-  GlobeIcon,
-  WalletIcon,
-} from "components/Icons/Icons.js";
 import React, { useEffect, useState } from "react";
 import UserHoldingsTable from "./components/UserHoldingsTable";
 import { handleFetchUserAttributes } from "../../../toolkit/cognito";

@@ -28,8 +28,9 @@ export default function Main(props) {
     profit_loss: null,
     trade_counter: null
   });
+  const [rankingsData, setRankingsData] = useState({});
 
-	const fetchData = async () => {
+	const fetchUserData = async () => {
 		try {
 			const response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?type=USER_DATA&user_id=${user.userId}`)
 			const data = await response.json();
@@ -44,11 +45,25 @@ export default function Main(props) {
 		}
 	};
 
+  const fetchGenericData = async () => {
+    try {
+      const response = await fetch(`https://l2g6kvzxpa.execute-api.us-east-1.amazonaws.com/dev/api?type=GENERAL_DATA`)
+      const data = await response.json();
+      setRankingsData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
 	useEffect(() => {
 		if (user) {
-			fetchData();
+			fetchUserData();
 		}
 	}, [user]);
+
+  useEffect(() => {
+      fetchGenericData();
+  }, []);
 
 
   const getRoute = () => {
@@ -109,7 +124,7 @@ export default function Main(props) {
           <Route
             path={prop.layout + prop.path}
             render={(routeProps) => (
-              <prop.component {...routeProps} userData={userData} />
+              <prop.component {...routeProps} userData={userData} rankingsData={rankingsData} />
             )}
             key={key}
           />

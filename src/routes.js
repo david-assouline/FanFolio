@@ -9,6 +9,7 @@ import Holdings from "./views/Portal/Holdings";
 import Home from "views/Portal/Home";
 import { FaExchangeAlt } from "react-icons/fa";
 import { MdLeaderboard } from "react-icons/md";
+import Rankings from "./views/Portal/Rankings";
 
 
 
@@ -38,7 +39,7 @@ var dashRoutes = [
     path: "/rankings",
     name: "Rankings",
     icon: <MdLeaderboard color="inherit"/>,
-    component: Holdings,
+    component: Rankings,
     layout: "/portal",
   },
   // {

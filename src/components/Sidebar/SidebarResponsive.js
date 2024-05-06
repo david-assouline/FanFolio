@@ -17,9 +17,7 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import IconBox from "components/Icons/IconBox";
-import { CreativeTimLogo } from "components/Icons/Icons";
 import { Separator } from "components/Separator/Separator";
-import { SidebarHelp } from "components/Sidebar/SidebarHelp";
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import ffBannerLogo from "../../assets/img/FF-Banner-transparent-background.png";
